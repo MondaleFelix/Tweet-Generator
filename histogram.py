@@ -9,6 +9,9 @@ def histogram(text):
 	for word in text:
 		count = text.count(word)
 		histograms.update( {word: count})
-	print(histograms)
+	return histograms
 
-histogram(text)
+def unique_words(histogram):
+	return len(histogram)
+
+print(unique_words(histogram(text)))
