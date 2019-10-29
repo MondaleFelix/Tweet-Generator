@@ -20,4 +20,3 @@ def frequency(word, histogram):
 test_histogram = histogram(text)
 
 print(frequency("fish", test_histogram))
-# Should print 4
