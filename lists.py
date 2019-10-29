@@ -14,7 +14,9 @@ def unique_words(list):
 	return len(list)
 
 def frequency(word, list):
-	return [word]
+	for count in  list:
+		if count[0] == word:
+			return count[1]
 
 # test_histogram = histogram(text)
 
@@ -23,3 +25,5 @@ def frequency(word, list):
 test_list = create_lists(text)
 
 print(unique_words(test_list))
+
+print(frequency("fish", test_list))
