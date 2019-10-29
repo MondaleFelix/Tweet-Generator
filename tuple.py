@@ -20,11 +20,11 @@ def frequency(word, list):
 
 test_histogram = create_tuple(text)
 
-print(test_histogram)
-# print(frequency("fish", test_histogram))
 
-# test_list = create_lists(text)
 
-# print(unique_words(test_list))
 
-# print(frequency("fish", test_list))
+test_list = create_tuple(text)
+
+print(unique_words(test_list))
+
+print(frequency("fish", test_list))
