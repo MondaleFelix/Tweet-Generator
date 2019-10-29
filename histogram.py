@@ -14,4 +14,10 @@ def histogram(text):
 def unique_words(histogram):
 	return len(histogram)
 
-print(unique_words(histogram(text)))
+def frequency(word, histogram):
+	return histogram[word]
+
+test_histogram = histogram(text)
+
+print(frequency("fish", test_histogram))
+# Should print 4
