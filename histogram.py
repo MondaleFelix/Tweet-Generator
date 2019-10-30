@@ -1,6 +1,3 @@
-import random
-import sys
-
 text = "one fish two fish red fish blue fish"
 
 def histogram(text):
@@ -20,3 +17,5 @@ def frequency(word, histogram):
 test_histogram = histogram(text)
 
 print(frequency("fish", test_histogram))
+
+print(test_histogram)
