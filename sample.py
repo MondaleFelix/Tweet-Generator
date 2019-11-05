@@ -26,7 +26,7 @@ def generate_probability(histogram):
 	for key, value in histogram.items():
 		probability = value / total_words
 		counter += probability
-		new_histogram[key] =  counter
+		key =  counter
 	return new_histogram
 
 
