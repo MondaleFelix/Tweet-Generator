@@ -24,6 +24,7 @@ class Dictogram(dict):
         # Increments total count of words
         self.tokens += count
 
+        # Adds word and count to dictionary
         if word in self:
         	self[word] += count
         else:
@@ -33,11 +34,9 @@ class Dictogram(dict):
 
     def frequency(self, word):
         """Return frequency count of given word, or 0 if word is not found."""
-        if word in self:
-        	return self[word]
-        else:
-        	return 0
         # TODO: Retrieve word frequency count
+
+        return self[word] or 0
 
 
 def print_histogram(word_list):
