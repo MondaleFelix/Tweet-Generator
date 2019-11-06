@@ -36,8 +36,13 @@ class Dictogram(dict):
         """Return frequency count of given word, or 0 if word is not found."""
         # TODO: Retrieve word frequency count
 
-        return self[word] or 0
+        return self.get(word, 0)
+        # return self[word] or 0
 
+        # if word in self:
+        # 	self[word]
+        # else:
+        # 	return 0
 
 def print_histogram(word_list):
     print('word list: {}'.format(word_list))

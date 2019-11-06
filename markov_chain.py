@@ -3,6 +3,12 @@ import random
 
 text = "one fish two fish red fish blue fish"
 
+class MarkovChain(dic):
+	
+	__init__(self, words_list):
+	
+	super(MarkovChain, self).__init__()	
+
 def get_following_words(text):
 	words_list = text.split()
 	following_words_dict = {}
@@ -29,9 +35,9 @@ def return_sentence(hist, num_of_words, starting_word):
 
 	while len(sentence) is not num_of_words:
 		sentence.append(next_word)
-		print(next_word)
+
 		next_word = get_next_word(hist[next_word])
-		print(next_word)
+
 
 	print(sentence)
 
