@@ -94,9 +94,12 @@ class LinkedList(object):
 
         # TODO: Prepend node before head, if it exists
 
-        new_node.next = self.head
+        if self.is_empty():
+        	self.tail = new_node
+        else:
+        	new_node.next = self.head
+        	
         self.head = new_node
-
 
 
     def find(self, quality):
