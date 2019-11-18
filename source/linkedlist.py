@@ -77,7 +77,6 @@ class LinkedList(object):
         	self.head = new_node
         else:
 	        self.tail.next = new_node.data
-        	
 
         self.tail = new_node
 
@@ -91,7 +90,12 @@ class LinkedList(object):
         # TODO: Create new node to hold given item
 
 
+        new_node = Node(item)
+
         # TODO: Prepend node before head, if it exists
+
+        new_node.next = self.head
+        self.head = new_node
 
 
 
@@ -101,6 +105,7 @@ class LinkedList(object):
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
+
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
