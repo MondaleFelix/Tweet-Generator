@@ -76,7 +76,7 @@ class LinkedList(object):
         if self.is_empty():
         	self.head = new_node
         else:
-	        self.tail.next = new_node.data
+	        self.tail.next = new_node
 
         self.tail = new_node
 
@@ -106,6 +106,8 @@ class LinkedList(object):
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
 
+        if self.empty:
+        	return False
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
