@@ -50,11 +50,17 @@ class LinkedList(object):
 
     def is_empty(self):
         """Return a boolean indicating whether this linked list is empty."""
+
+        # O(1), it will only take one constant step regardless of input size
         return self.head is None
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
         TODO: Running time: O(???) Why and under what conditions?"""
+
+        # Best case: O(1), If the current node is None, it will take one constant step to return the counter
+        # Worst case: O(n) If it iterates the the entire linked list
+
         counter = 0 
         current_node = self.head
 
@@ -70,6 +76,8 @@ class LinkedList(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Append node after tail, if it exists
+
+        # O(1) It will take one constant step, independent of input size
 
         new_node = Node(item)
 
@@ -90,6 +98,7 @@ class LinkedList(object):
         # TODO: Create new node to hold given item
 
 
+        # O(1) It will take one constant step regardless of input size 
         new_node = Node(item)
 
         # TODO: Prepend node before head, if it exists
@@ -112,6 +121,9 @@ class LinkedList(object):
 
         current_node = self.head
 
+        # Best case: O(1) if item was found in first node
+        # Worst case: O(n) if item was found in last node
+
         # Checks each node and return the data (if found)
         while current_node is not None:
         	if quality(current_node.data):
@@ -129,6 +141,8 @@ class LinkedList(object):
 
         previous_node = None
         current_node = self.head
+
+        # O(n) as it has to iterate the entire linkedlist 
 
         # Checks to see if linkedlist is empty
         if self.is_empty():
