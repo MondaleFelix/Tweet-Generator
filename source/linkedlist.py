@@ -99,6 +99,7 @@ class LinkedList(object):
         else:
         	new_node.next = self.head
 
+        # Assigns the new node the head
         self.head = new_node
 
 
@@ -111,6 +112,7 @@ class LinkedList(object):
 
         current_node = self.head
 
+        # Checks each node and return the data (if found)
         while current_node is not None:
         	if quality(current_node.data):
         		return current_node.data
@@ -124,6 +126,36 @@ class LinkedList(object):
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes to find one whose data matches given item
+
+        previous_node = None
+        current_node = self.head
+
+        # Checks to see if linkedlist is empty
+        if self.is_empty():
+            raise ValueError('Item not found: {}'.format(item))
+
+        # iterates through nodes and checks if item is data
+        while item is not current_node.data:
+            #
+            if current_node.next is None:
+                raise ValueError('Item not found: {}'.format(item))
+
+            previous_node = current_node
+            current_node = current_node.next
+
+        # Reassigns the pointer of the previous node to the next node
+        if current_node is not self.head and current_node is not self.tail:
+            previous_node.next = current_node.next
+
+        if current_node is self.head:
+            self.head = current_node.next
+
+        if current_node is self.tail:
+            self.tail = previous_node
+
+            if previous_node:
+                previous_node.next = None
+
 
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
