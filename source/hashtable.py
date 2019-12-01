@@ -27,7 +27,10 @@ class HashTable(object):
     def keys(self):
         """Return a list of all keys in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
+
+      	# O(n^2) as it is going to iterate through the amount of buckets and then nodes
         # Collect all keys in each bucket
+
         all_keys = []
         for bucket in self.buckets:
             for key, value in bucket.items():
@@ -37,6 +40,12 @@ class HashTable(object):
     def values(self):
         """Return a list of all values in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
+
+        values = []
+        for bucket in self.buckets:
+        	for key, value in bucket.items():
+        		values.append(value)
+        return values
         # TODO: Loop through all buckets
         # TODO: Collect all values in each bucket
 
@@ -55,20 +64,45 @@ class HashTable(object):
         # TODO: Loop through all buckets
         # TODO: Count number of key-value entries in each bucket
 
+        count = 0
+
+        for bucket in self.buckets:
+        	count += bucket.length()
+        return count
+
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
 
+
+
+        bucket_index = self._bucket_index(key)
+
+        bucket = self.buckets[bucket_index]
+
+        if bucket.find() is not None:
+        	return False
+        else:
+        	return True
+
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Find bucket where given key belongs
+
+        bucket_index = self._bucket_index(key)
+
+        bucket = self.buckets[bucket_index]
         # TODO: Check if key-value entry exists in bucket
+
+        # if 
         # TODO: If found, return value associated with given key
         # TODO: Otherwise, raise error to tell user get failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
+
+
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
