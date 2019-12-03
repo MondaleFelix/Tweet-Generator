@@ -65,8 +65,8 @@ class LinkedList(object):
         current_node = self.head
 
         while current_node is not None:
-        	counter +=1
-        	current_node = current_node.next
+            counter +=1
+            current_node = current_node.next
         return counter
 
         # TODO: Loop through all nodes and count one for each
@@ -82,9 +82,9 @@ class LinkedList(object):
         new_node = Node(item)
 
         if self.is_empty():
-        	self.head = new_node
+            self.head = new_node
         else:
-	        self.tail.next = new_node
+            self.tail.next = new_node
 
         self.tail = new_node
 
@@ -104,9 +104,9 @@ class LinkedList(object):
         # TODO: Prepend node before head, if it exists
 
         if self.is_empty():
-        	self.tail = new_node
+            self.tail = new_node
         else:
-        	new_node.next = self.head
+            new_node.next = self.head
 
         # Assigns the new node the head
         self.head = new_node
@@ -126,9 +126,9 @@ class LinkedList(object):
 
         # Checks each node and return the data (if found)
         while current_node is not None:
-        	if quality(current_node.data):
-        		return current_node.data
-        	current_node = current_node.next
+            if quality(current_node.data):
+                return current_node.data
+            current_node = current_node.next
 
 
 
@@ -142,11 +142,28 @@ class LinkedList(object):
         previous_node = None
         current_node = self.head
 
+        print(self.__repr__)
+
         # O(n) as it has to iterate the entire linkedlist 
 
         # Checks to see if linkedlist is empty
         if self.is_empty():
             raise ValueError('Item not found: {}'.format(item))
+
+        if current_node is self.head:
+            if self.tail  is self.head:
+                self.tail = None
+            self.head = current_node.next
+            return
+            
+        if current_node is self.tail:
+            self.tail = previous_node
+
+            if previous_node:
+                previous_node.next = None
+            return
+
+
 
         # iterates through nodes and checks if item is data
         while item is not current_node.data:
@@ -160,15 +177,6 @@ class LinkedList(object):
         # Reassigns the pointer of the previous node to the next node
         if current_node is not self.head and current_node is not self.tail:
             previous_node.next = current_node.next
-
-        if current_node is self.head:
-            self.head = current_node.next
-
-        if current_node is self.tail:
-            self.tail = previous_node
-
-            if previous_node:
-                previous_node.next = None
 
 
         # TODO: Update previous node to skip around node with matching data

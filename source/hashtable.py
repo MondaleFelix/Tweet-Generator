@@ -85,7 +85,7 @@ class HashTable(object):
 
         bucket = self.get_bucket(key)
 
-        if bucket.find(key) is None:
+        if bucket.find(lambda item: item[0] == key) is None:
         	return False
         else: 
         	return True
@@ -102,7 +102,7 @@ class HashTable(object):
 
         bucket = self.get_bucket(key)
 
-        found_data = bucket.find(key)
+        found_data = bucket.find(lambda item: item[0] == key)
 
         if found_data is None:
         	raise KeyError("Key not found: {}".format(key))
@@ -120,10 +120,11 @@ class HashTable(object):
         bucket = self.get_bucket(key)
 
         # Data found in bucket
-        current_data = bucket.find(key)
-
+        current_data = bucket.find(lambda item: item[0] == key)
+        print(current_data)
         # Data to be added
-        new_data = [key, value]
+        new_data = (key, value)
+        print(new_data)
 
         # Adds data if not found
         if current_data is None:
@@ -131,7 +132,8 @@ class HashTable(object):
 
         #  Updates data 
         else:
-        	current_data[1] = value
+        	# current_data[1] = value
+        	current_data = (key, value)
 
 
 
@@ -151,9 +153,9 @@ class HashTable(object):
         # TODO: Otherwise, raise error to tell user delete failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
 
-        bucket = get_bucket(key)
+        bucket = self.get_bucket(key)
 
-        found_data = bucket.find(key)
+        found_data = bucket.find(lambda item: item[0] == key)
 
         if found_data is None:
         	raise KeyError("Key is not found:{}".format(key))
