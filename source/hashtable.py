@@ -123,7 +123,7 @@ class HashTable(object):
         current_data = bucket.find(lambda item: item[0] == key)
         print(current_data)
         # Data to be added
-        new_data = (key, value)
+        new_data = [key, value]
         print(new_data)
 
         # Adds data if not found
@@ -132,8 +132,8 @@ class HashTable(object):
 
         #  Updates data 
         else:
-        	# current_data[1] = value
-        	current_data = (key, value)
+        	current_data[1] = value
+        	# current_data = (key,)
 
 
 
