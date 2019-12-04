@@ -58,7 +58,7 @@ class LinkedList(object):
         """Return the length of this linked list by traversing its nodes.
         TODO: Running time: O(???) Why and under what conditions?"""
 
-        # Best case: O(1), If the current node is None, it will take one constant step to return the counter
+        # Best case: O(n)
         # Worst case: O(n) If it iterates the the entire linked list
 
         counter = 0 
@@ -139,12 +139,13 @@ class LinkedList(object):
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes to find one whose data matches given item
 
+        # O(n) as it has to iterate the entire linkedlist 
+        
         previous_node = None
         current_node = self.head
 
         print(self.__repr__)
 
-        # O(n) as it has to iterate the entire linkedlist 
 
         # Checks to see if linkedlist is empty
         if self.is_empty():
@@ -155,7 +156,7 @@ class LinkedList(object):
                 self.tail = None
             self.head = current_node.next
             return
-            
+
         if current_node is self.tail:
             self.tail = previous_node
 

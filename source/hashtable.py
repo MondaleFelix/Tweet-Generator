@@ -34,8 +34,8 @@ class HashTable(object):
         """Return a list of all keys in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
 
-      	# O(n^2) as it is going to iterate through the amount of buckets and then nodes
-        # Collect all keys in each bucket
+      	# O(n) Dependant on only the size of the buckets as keys are apended per bucket
+
 
         all_keys = []
         for bucket in self.buckets:
@@ -45,7 +45,9 @@ class HashTable(object):
 
     def values(self):
         """Return a list of all values in this hash table.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        TODO: Running time: O(n) Why and under what conditions?"""
+
+      	# O(n) Dependant on only the size of the buckets as values are apended per bucket
 
         values = []
         for bucket in self.buckets:
@@ -57,7 +59,11 @@ class HashTable(object):
 
     def items(self):
         """Return a list of all items (key-value pairs) in this hash table.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        TODO: Running time: O(n) Why and under what conditions?"""
+
+
+      	# O(n) Dependant on only the size of the buckets as items are apended per bucket
+
         # Collect all pairs of key-value entries in each bucket
         all_items = []
         for bucket in self.buckets:
@@ -67,6 +73,9 @@ class HashTable(object):
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
         TODO: Running time: O(???) Why and under what conditions?"""
+
+        # O(n) Dependant on size of buckets
+
         # TODO: Loop through all buckets
         # TODO: Count number of key-value entries in each bucket
 
@@ -82,6 +91,7 @@ class HashTable(object):
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
 
+        # O(1) Constant time as we are we know the index of the bucket 
 
         bucket = self.get_bucket(key)
 
@@ -100,6 +110,9 @@ class HashTable(object):
         # TODO: Otherwise, raise error to tell user get failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
 
+
+        # O(1) Constant time as we are we know the index of the bucket 
+
         bucket = self.get_bucket(key)
 
         found_data = bucket.find(lambda item: item[0] == key)
@@ -115,6 +128,8 @@ class HashTable(object):
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         TODO: Running time: O(???) Why and under what conditions?"""
+
+        # O(1) Constant time as we are we know the index of the bucket 
 
         # Get bucket using hash function
         bucket = self.get_bucket(key)
@@ -153,6 +168,8 @@ class HashTable(object):
         # TODO: Otherwise, raise error to tell user delete failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
 
+
+        # O(1) Constant time as we are we know the index of the bucket 
         bucket = self.get_bucket(key)
 
         found_data = bucket.find(lambda item: item[0] == key)
