@@ -136,10 +136,11 @@ class HashTable(object):
 
         # Data found in bucket
         current_data = bucket.find(lambda item: item[0] == key)
-        print(current_data)
+
+
         # Data to be added
         new_data = [key, value]
-        print(new_data)
+
 
         # Adds data if not found
         if current_data is None:
@@ -148,7 +149,8 @@ class HashTable(object):
         #  Updates data 
         else:
         	current_data[1] = value
-        	# current_data = (key,)
+        	
+        	# current_data = (key, value)
 
 
 
@@ -170,6 +172,7 @@ class HashTable(object):
 
 
         # O(1) Constant time as we are we know the index of the bucket 
+
         bucket = self.get_bucket(key)
 
         found_data = bucket.find(lambda item: item[0] == key)
