@@ -74,7 +74,7 @@ class HashTable(object):
         """Return the number of key-value entries by traversing its buckets.
         TODO: Running time: O(???) Why and under what conditions?"""
 
-        # O(n) Dependant on size of buckets
+        # O(n) Dependant on only the size of the buckets as values are apended per bucket
 
         # TODO: Loop through all buckets
         # TODO: Count number of key-value entries in each bucket
@@ -93,6 +93,12 @@ class HashTable(object):
 
         # O(1) Constant time as we are we know the index of the bucket 
 
+        # Worst Case
+        # O(n) If we would have to through the last bucket or item does not exists
+
+        # Average Case
+        # O(l) Based on load factor / amount of items to buckets
+
         bucket = self.get_bucket(key)
 
         if bucket.find(lambda item: item[0] == key) is None:
@@ -110,9 +116,14 @@ class HashTable(object):
         # TODO: Otherwise, raise error to tell user get failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
 
-
+        # Best Case
         # O(1) Constant time as we are we know the index of the bucket 
 
+        # Worst Case
+        # O(n) If we would have to through the last bucket or item does not exists
+
+        # Average Case
+        # O(l) Based on load factor / amount of items to buckets
         bucket = self.get_bucket(key)
 
         found_data = bucket.find(lambda item: item[0] == key)
@@ -130,6 +141,12 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
 
         # O(1) Constant time as we are we know the index of the bucket 
+
+        # Worst Case
+        # O(n) If we would have to through the last bucket or item does not exists
+
+        # Average Case
+        # O(l) Based on load factor / amount of items to buckets
 
         # Get bucket using hash function
         bucket = self.get_bucket(key)
@@ -172,6 +189,12 @@ class HashTable(object):
 
 
         # O(1) Constant time as we are we know the index of the bucket 
+
+        # Worst Case
+        # O(n) If we would have to through the last bucket or item does not exists
+
+        # Average Case
+        # O(l) Based on load factor / amount of items to buckets
 
         bucket = self.get_bucket(key)
 
