@@ -13,10 +13,10 @@ class Queue():
 		return self.items == []
 
 	def add(self, item):
-		self.items.insert(0,item)
+		self.items.insert(1,item)
 
 	def remove(self):
-		self.items.pop()
+		self.items.pop(0)
 
 	def size(self):
 		return len(self.items)
@@ -29,10 +29,16 @@ n = 2
 
 for i in range(len(words_list)):
 
-	q.add(words_list[i])
-	q.add(words_list[i+1])
-	q.remove()
+	if i == 0:
+		q.add(words_list[i])
+		q.add(words_list[i+1])
 
+	elif i == len(words_list) -1 :
+		break
+
+	else: 
+		q.remove()
+		q.add(words_list[i +1])
 
 	print(q.items)
 
