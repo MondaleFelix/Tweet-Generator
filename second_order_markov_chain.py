@@ -1,4 +1,5 @@
 import random
+from markov_chain import *
 
 text = "one fish two fish red fish blue fish"
 words_list = text.split(" ")
@@ -26,6 +27,8 @@ class Queue():
 q = Queue()
 n = 2
 
+arr = []
+histogram = {}
 
 for i in range(len(words_list)):
 
@@ -40,11 +43,41 @@ for i in range(len(words_list)):
 		q.remove()
 		q.add(words_list[i +1])
 
-	print(q.items)
 
 
+	key = " ".join(q.items)
+
+	# histogram[key] = 1
+	arr.append(key)
+
+counter = 0
+for tokens in arr:
+	value = [arr[0], 1] 
+	histogram[tokens] = value
 
 
+def get_following_words(array):
 
+	following_words_dict = {}
+	counter = 1
+
+	for word in array:
+
+		# Breaks if word is last word in list
+		if word is words_list[len(words_list) - 1]:
+			break
+
+			# 
+		if word not in following_words_dict:
+			following_words_dict[word] = []
+			following_words_dict[word].append(words_list[counter])
+		else:
+			following_words_dict[word].append(words_list[counter])
+		counter += 1
+		print(following_words_dict)
+
+	return following_words_dict
+
+print(get_following_words(arr))
 
 
