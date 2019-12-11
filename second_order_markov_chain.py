@@ -1,5 +1,4 @@
 import random
-from markov_chain import *
 
 text = "one fish two fish red fish blue fish"
 words_list = text.split(" ")
@@ -62,22 +61,22 @@ def get_following_words(array):
 	counter = 1
 
 	for word in array:
+		if word is not array[len(array) -1]:
+			# Breaks if word is last word in list
+			if word is words_list[len(array) - 1]:
+				break
 
-		# Breaks if word is last word in list
-		if word is words_list[len(words_list) - 1]:
-			break
+				# 
+			if word not in following_words_dict:
+				following_words_dict[word] = []
 
-			# 
-		if word not in following_words_dict:
-			following_words_dict[word] = []
-			following_words_dict[word].append(words_list[counter])
-		else:
-			following_words_dict[word].append(words_list[counter])
-		counter += 1
-		print(following_words_dict)
+				following_words_dict[word].append(array[counter])
+			else:
+				following_words_dict[word].append(array[counter])
+			counter += 1
+	print(following_words_dict)
 
 	return following_words_dict
 
 print(get_following_words(arr))
-
 
