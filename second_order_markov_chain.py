@@ -71,10 +71,15 @@ def get_following_words(array):
 				following_words_dict[word] = []
 
 				following_words_dict[word].append(array[counter])
+				following_words_dict[word].append(1)
+
+
+
 			else:
 				following_words_dict[word].append(array[counter])
+				following_words_dict[word][1] +=1
 			counter += 1
-	print(following_words_dict)
+	# print(following_words_dict)
 
 	return following_words_dict
 
