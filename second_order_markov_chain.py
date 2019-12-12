@@ -1,6 +1,6 @@
 import random
 
-text = "one fish two fish red fish blue fish"
+text = "i like cats and you like cats i like dogs but you hate dogs"
 words_list = text.split(" ")
 
 

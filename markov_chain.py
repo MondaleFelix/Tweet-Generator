@@ -1,15 +1,14 @@
 import random
 
 
-text = "one fish two fish red fish blue fish"
-
+text = "i like cats and you like cats i like dogs but you hate dogs"
 class MarkovChain():
 	
 	def __init__(self, words_list):
 		super(MarkovChain, self).__init__()	
 	
 
-def get_following_words(n,text):
+def get_following_words(text):
 	words_list = text.split()
 	following_words_dict = {}
 	counter = 1
@@ -43,11 +42,11 @@ def return_sentence(hist, num_of_words, starting_word):
 		next_word = get_next_word(hist[next_word])
 
 
-	# print(sentence)
+	print(sentence)
 
 
 
 def get_next_word(array):
 	return array[random.randint(0,len(array) - 1)]
 
-return_sentence(get_following_words(text), 10 , "fish")
+return_sentence(get_following_words(text), 10 , "i")
