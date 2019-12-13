@@ -8,7 +8,7 @@ def return_word(histogram):
 	#  Returns a random float from 0 - 1
 	random_index = random.random()
 	# returns word if value is greater than random_index
-	print(random_index)
+	# print(random_index)
 	for key, value in histogram.items():
 		if random_index < value:
 			return key
@@ -18,7 +18,7 @@ def return_word(histogram):
 
 
 
-#  Returns a histogram with the probability assigned to the key
+ # Returns a histogram with the probability assigned to the key
 def generate_probability(histogram):
 	total_words = sum(histogram.values())
 	counter = 0
@@ -26,7 +26,7 @@ def generate_probability(histogram):
 	for key, value in histogram.items():
 		probability = value / total_words
 		counter += probability
-		key =  counter
+		new_histogram[key] =  counter
 	return new_histogram
 
 
