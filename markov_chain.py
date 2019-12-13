@@ -2,10 +2,7 @@ import random
 
 
 text = "i like cats and you like cats i like dogs but you hate dogs"
-class MarkovChain():
-	
-	def __init__(self, words_list):
-		super(MarkovChain, self).__init__()	
+
 	
 
 def get_following_words(text):
@@ -26,27 +23,30 @@ def get_following_words(text):
 		else:
 			following_words_dict[word].append(words_list[counter])
 		counter += 1
-		print(following_words_dict)
+		# print(following_words_dict)
 
 	return following_words_dict
 
-def return_sentence(hist, num_of_words, starting_word):
+def return_sentence(hist, num_of_words):
 	
-	sentence = [starting_word]
+	random_word = random.choice(list(hist.keys()))
 
-	next_word = get_next_word(hist[starting_word])
+	sentence = [random_word]
+
+	next_word = get_next_word(hist[random_word])
 
 	while len(sentence) is not num_of_words:
 		sentence.append(next_word)
 
 		next_word = get_next_word(hist[next_word])
 
+	sentence = " ".join(sentence)
 
-	print(sentence)
+	return sentence
 
 
 
 def get_next_word(array):
 	return array[random.randint(0,len(array) - 1)]
 
-return_sentence(get_following_words(text), 10 , "i")
+# return_sentence(get_following_words(text), 10 , "i")
