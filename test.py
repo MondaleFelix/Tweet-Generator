@@ -1,18 +1,14 @@
-class HashTable(object):
+import re
 
-	def __init__(self, size):
-		self.size = size
-		#  creates the amount of buckets based on size
-		self.buckets = [None] * self.size
-		self.data = [None] * self.size
+text = open("corpus.txt", "r+")
 
-	def put(self, key , value):
+lines = text.readlines()
 
-		hash_value = self.hash_function(key, len(self.slots))
+for line in lines: 
+	line = line.replace("“", " ")
+	line = line.replace("”", " ")
+	line = line.replace("_", "")
+	line = line.replace("-", "")
 
-		if self.buckets[hash_value] is None:
-			self.buckets[hash_value] = key
-			self.data[hash_value] = value
 
-	def hash_function(self, key, size):
-		return key % size
+ lines = " ".join(lines)

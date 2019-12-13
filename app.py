@@ -1,15 +1,15 @@
-from flask import Flask
+from flask import Flask, render_template, request, redirect, url_for, jsonify, make_response
 from markov_chain import * 
 
 app = Flask(__name__)
 
+text = get_clean_text("corpus.txt")
 
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def hello_world():
-	words_list = "one fish two fish red fish blue fish"	
-	sentence = return_sentence(get_following_words(words_list), 10)
-	print(sentence)
-	return sentence
 
+	sentence = return_sentence(get_following_words(text), 10)
+
+	return sentence
 

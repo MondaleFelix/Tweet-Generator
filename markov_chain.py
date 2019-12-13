@@ -1,7 +1,16 @@
 import random
+import re
 
 
-text = "i like cats and you like cats i like dogs but you hate dogs"
+def get_clean_text(file):
+    with open(file, "r") as f:
+        text = f.read().split()
+    text = [re.sub('[^A-Za-z]+', '', word).lower() for word in text]
+    text = " ".join(text)
+    return text
+
+
+text = get_clean_text("corpus.txt")
 
 	
 
@@ -49,4 +58,4 @@ def return_sentence(hist, num_of_words):
 def get_next_word(array):
 	return array[random.randint(0,len(array) - 1)]
 
-# return_sentence(get_following_words(text), 10 , "i")
+print(return_sentence(get_following_words(text), 10))
